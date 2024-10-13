@@ -10,5 +10,5 @@ RUN mvn package
 
 FROM eclipse-temurin:23-jdk
 WORKDIR /app
-COPY --from=build /app/target/Phanex.jar ./backend.jar
+COPY --from=build /app/target/*.jar ./backend.jar
 CMD ["java","-jar","backend.jar"]
