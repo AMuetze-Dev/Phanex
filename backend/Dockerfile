@@ -8,9 +8,7 @@ RUN mvn dependency:go-offline
 COPY src ./src
 RUN mvn package
 
-RUN ls
-
 FROM eclipse-temurin:23-jdk
 WORKDIR /app
-COPY --from=build /app/target/backend.jar ./backend.jar
+COPY --from=build /app/target/Phanex.jar ./backend.jar
 CMD ["java","-jar","backend.jar"]
