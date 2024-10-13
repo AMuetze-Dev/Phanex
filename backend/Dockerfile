@@ -6,9 +6,9 @@ RUN apt-get update && apt-get install -y maven
 COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src ./src
-RUN mvn package -x
+RUN mvn package
 
-RUN ls -l target
+RUN ls
 
 FROM eclipse-temurin:23-jdk
 WORKDIR /app
