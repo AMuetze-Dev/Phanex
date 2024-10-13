@@ -3,4 +3,6 @@ WORKDIR /app
 COPY ./package*.json ./
 RUN npm install
 COPY . .
-RUN ["npx","serve","-s","build"]
+RUN npm install -g serve
+RUN npm run build
+RUN ["serve","-s","build"]
