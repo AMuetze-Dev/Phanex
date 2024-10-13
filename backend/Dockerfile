@@ -1,7 +1,7 @@
 FROM eclipse-temurin:23-jdk AS build
 WORKDIR /app
 COPY pom.xml .
-RUN mvn dependency:go-offline
+RUN mvn clean install
 COPY src ./src
 RUN mvn package
 
