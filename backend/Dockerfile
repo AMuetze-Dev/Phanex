@@ -1,7 +1,10 @@
 FROM eclipse-temurin:23-jdk AS build
 WORKDIR /app
+
+RUN apt-get update && apt-get install -y maven
+
 COPY pom.xml .
-RUN mvn clean install
+RUN mvn dependency:go-offline
 COPY src ./src
 RUN mvn package
 
